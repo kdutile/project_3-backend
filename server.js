@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 const cors = require("cors");
-const express = require('express')
+const express = require("express");
 const app = express();
 const db = mongoose.connection;
 const locationsController = require("./controllers/locationsController");
@@ -30,16 +30,15 @@ db.on("error", (err) => console.log(err.message + " is Mongod not running?"));
 db.on("connected", () => console.log("mongo connected: ", MONGODB_URI));
 db.on("disconnected", () => console.log("mongo disconnected"));
 
-// MIDDLEWARE 
+// MIDDLEWARE
 
 app.use(cors());
 app.use(express.json());
 app.use("/locations", locationsController);
 
-app.listen(3000, () => {
-  console.log(`I'm alive and listening`)
-})
-
+app.listen(PORT, () => {
+    console.log(`I'm alive and listening on `, PORT);
+});
 
 // mongoose.connect("mongodb://localhost:27017/unit3projectCrud");
 // mongoose.connection.once("open", () => {
