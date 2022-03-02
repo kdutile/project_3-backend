@@ -4,7 +4,6 @@ const express = require("express");
 const app = express();
 const db = mongoose.connection;
 const locationsController = require("./controllers/locationsController");
-
 require("dotenv").config();
 
 //___________________
@@ -22,12 +21,12 @@ const MONGODB_URI = process.env.MONGODB_URI;
 // Connect to Mongo &
 // Fix Depreciation Warnings from Mongoose
 // May or may not need these depending on your Mongoose version
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 console.log(MONGODB_URI);
 
 // Error / success
 db.on("error", (err) => console.log(err.message + " is Mongod not running?"));
-db.on("connected", () => console.log("mongo connected: ", MONGODB_URI));
+db.on("connected", () => console.log("mongo connected: ", PROJECT3_DB));
 db.on("disconnected", () => console.log("mongo disconnected"));
 
 // MIDDLEWARE
