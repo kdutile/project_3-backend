@@ -3,7 +3,7 @@ const cors = require("cors");
 const express = require("express");
 const app = express();
 const db = mongoose.connection;
-const locationsController = require("./controllers/locationsController");
+const logsController = require("./controllers/logsController");
 require("dotenv").config();
 
 //___________________
@@ -33,7 +33,7 @@ db.on("disconnected", () => console.log("mongo disconnected"));
 
 app.use(cors());
 app.use(express.json());
-app.use("/locations", locationsController);
+app.use("/logs", logsController);
 
 app.listen(PORT, () => {
     console.log(`I'm alive and listening on `, PORT);
