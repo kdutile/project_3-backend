@@ -1,5 +1,5 @@
 const express = require("express");
-const Logs = require("../models/Logs");
+const Logs = require("../models/logs");
 const router = express.Router();
 
 /* -------------------------------------------------------------------------- */
