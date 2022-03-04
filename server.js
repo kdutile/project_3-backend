@@ -5,6 +5,7 @@ const app = express();
 const db = mongoose.connection;
 const logsController = require("./controllers/logsController");
 require("dotenv").config();
+const usersController = require("./controllers/usersController");
 
 //___________________
 //Port
@@ -34,6 +35,7 @@ db.on("disconnected", () => console.log("mongo disconnected"));
 app.use(cors());
 app.use(express.json());
 app.use("/logs", logsController);
+app.use("/users", usersController);
 
 app.listen(PORT, () => {
     console.log(`I'm alive and listening on `, PORT);
