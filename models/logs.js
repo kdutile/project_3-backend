@@ -5,8 +5,9 @@ const logSchema = new mongoose.Schema({
     location: String,
     description: String,
     cost: Number,
-    image: [String],
+    image: String,
     recommendation: Boolean,
+    user: String
 });
 
 const Logs = mongoose.model("Log", logSchema);
